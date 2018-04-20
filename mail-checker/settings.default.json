@@ -1,0 +1,10 @@
+{
+  "SERVER_INTERNAL_ADDRESS": ":7000",
+  "TOPIC_NAME": "",
+  "DATABASE_URI": "",
+  "PATTERNS": {
+    "Compassion and Choices": ["Compassion & Choices", "choice-in-dying"],
+    "Petebot": ["Petebot", "gracious"],
+    "Leukemia & Lymphoma Society": ["Leukemia & Lymphoma Society", "rye brook"]
+  }
+}

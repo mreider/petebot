@@ -1,0 +1,25 @@
+{{ define "body" }}
+
+    <div class="container" id="help" tabindex="-1" style="margin-top:120px">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <img class="img-responsive" src="static/images/robot.png" alt="Petebot avatar" height="200" width="200" style="display: block;margin-left:auto;margin-right:auto;">
+                {{ if .Session.connected_to_strava }}
+                <a href="#" class="btn btn-primary btn-block btn-lg disabled" role="button" aria-disabled="true">Connected to Strava</a>
+                <br><br>
+                {{ if .Session.connected_to_slack }}
+                <a href="#" class="btn btn-primary btn-block btn-lg disabled" role="button" aria-disabled="true">Connected to Slack</a><br><br>
+                {{ else if .Session.slack_error }}
+                {{ .Session.slack_error }}
+                {{ else }}
+                <a href="{{ .SlackRedirectUrl }}"><img alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x,
+https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" /></a>
+                {{ end }}
+                {{ else }}
+                <a href="#" class="btn btn-danger btn-lg disabled" role="button" aria-disabled="true">An error occurred</a>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+{{ end }}
+

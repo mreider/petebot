@@ -1,0 +1,119 @@
+{{ define "base" }}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="The petebot is a slack bot for strava. Invite petebot to a channel and it gives updates from your strava club activity.">
+    <meta name="author" content="pete.fit">
+    <title>Petebot</title>
+    <link rel="icon" href="static/images/robot.ico">
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container" >
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Petebot</a>
+        </div>
+      </div>
+    </nav>
+
+{{template "body" .}}
+
+    <div class="container" id="docs">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <hr class="star-primary">
+                <div class="col-md-12 text-left">
+                I built Petebot in honor of my father, Pete, who died in 2015 of non hodgkins lymphoma. Pete was a lifelong runner, ran cross country at Harvard University, and held a 1957 record for both the mile (time 4:11) and 2 mile (time 9:21).
+                <hr class="star-primary">
+                <h3>Getting Started</h3>
+                To get started with Petebot, you must authorize your account in two places: Strava, and Slack. Here are the steps to get things running:
+                <br><br>
+                <ol>
+                        <li>Connect to Strava using the orange button at the top of this page</li>
+                        <li>Authorize the Strava App</li>
+                        <li>Return to pete.fit, connect and authorize for Slack</li>
+                        <li>Open Slack</li>
+                        <li>You should see Petebot listed as an app</li>
+                        <li>Mention Petebot in a channel where you want updates</li>
+                        <li>Click <strong>Invite</strong></li>
+                        <li>Petebot will join your channel</li>
+                        <li>Type <code>@petebot help</code> for instructions</li>
+                </ol>
+                <br>
+                <br>
+                <hr class="star-primary">
+                <h3>Watching clubs</h3>
+                You must have your Strava club ID to begin watching a club in Slack. You can find the club ID in the Strava URL of the club. For example: strava.com/clubs/231407 - the ID is 231407.
+                <br>
+                <br>
+                <hr class="star-primary">
+                <h3>Modifying your activity message</h3>
+                If you would like to create a custom message for your activity updates, you can use the <strong>@petebot MESSAGE</strong> command. These messages can reference any of the fields in the activity summary at <a href="http://strava.github.io/api/v3/activities/#summary">http://strava.github.io/api/v3/activities/#summary</a>. Here are some examples:
+                <br>
+                <br>
+                Show your name, activity, distance, and avg. speed in meters:<br>
+                <code>
+                    @petebot message woah {athlete.firstname} just went for a {name} and went {distance} at a pace of {average_speed} per meter.
+                </code>
+                <br>
+                <br>
+                You can also add "_feet" or "_miles" to some fields to convert them as follows:<br>
+                <code>
+                    @petebot message woah {athlete.firstname} just went for a {name} and went {distance_miles} miles at a pace of {average_speed_miles} per mile.
+                </code>
+                <br>
+                <br>
+                <hr class="star-primary">
+                <h3>Donating</h3>
+                You can donate to any of these causes:
+                <br>
+                <br>
+                <strong>Petebot</strong><br>
+                <a href="https://donorbox.org/petebot-donations">https://donorbox.org/petebot-donations</a>
+                <br>
+                I built Petebot in honor of my father, Pete, who was a lifelong runner and died of non hodgkins lymphoma in 2015. Donating to Petebot helps me pay for monthly hosting fees,enhancements, maintenance, babysitting, and occasional date nights with my wife, Alison.
+                <br><br>
+                <strong>Compassion and Choices</strong><br>
+                <a href="https://www.compassionandchoices.org/donate/">https://www.compassionandchoices.org/donate/</a>
+                <br>
+                This group was very helpful to Pete towards the end of his life. They support people through difficult decisions, and educate the public and professions about end-of-life options.
+                <br><br>
+                <strong>Leukemia &amp; Lymphoma Society</strong><br>
+                <a href="https://donate.lls.org/lls/">https://donate.lls.org/lls/</a><br>
+                LLS is dedicated to funding blood cancer research, education and patient services. Their mission is to cure leukemia, lymphoma, Hodgkin's disease and myeloma, and to improve the quality of life of patients and their families.
+                <br>
+                <br>
+                <hr class="star-primary">
+                <h3>Getting in touch</h3>
+                If you need more help you can email admin (at) pete.fit, or tweet to <a href="https://twitter.com/gopetebot">@gopetebot</a>
+                <br>
+                <p>&nbsp;</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<!-- Footer -->
+<footer class="text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>&nbsp;</p>
+                    Copyright &copy; Matthew Reider 2017 :: <a href="https://pete.fit/privacy">Privacy policy</a>
+                </div>
+            </div>
+        </div>
+</footer>
+</div>
+</body>
+</html>
+{{ end }}
